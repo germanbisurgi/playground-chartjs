@@ -1,5 +1,7 @@
 window.addEventListener('DOMContentLoaded', function () {
-  new Chart(document.getElementById('canvas-doughnut'), {
+  var ctx = document.getElementById('canvas-doughnut').getContext("2d")
+
+  new Chart(ctx, {
     type: 'doughnut',
     data: {
       labels: [
@@ -15,20 +17,14 @@ window.addEventListener('DOMContentLoaded', function () {
             '#ED7470',
             '#EE848B'
           ],
-          borderWidth: 1
+          borderWidth: 0
         }
       ]
     },
     options: {
       responsive: true,
       plugins: {
-        legend: {
-          position: 'top',
-        },
-        title: {
-          display: true,
-          text: 'Order intake by region'
-        }
+        legend: false
       }
     }
   })

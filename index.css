@@ -7,8 +7,9 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .canvas-container {
-    border: 1px solid #eeeeee;
+    width: 60%;
 }

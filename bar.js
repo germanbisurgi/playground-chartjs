@@ -1,5 +1,11 @@
 window.addEventListener('DOMContentLoaded', function () {
-  new Chart(document.getElementById('canvas-bar'), {
+  var ctx = document.getElementById('canvas-bar').getContext("2d")
+
+  var gradient = ctx.createLinearGradient(0, 0, 0, 400);
+  gradient.addColorStop(0, 'rgba(238,132,139,1)')
+  gradient.addColorStop(1, 'rgba(238,132,139,0.8)')
+
+  new Chart(ctx, {
     type: 'bar',
     data: {
       labels: [
@@ -12,21 +18,23 @@ window.addEventListener('DOMContentLoaded', function () {
       datasets: [
         {
           data: [8.4, 6.9, -0.6, -5.4, 11.1],
-          backgroundColor: '#EE848B',
+          backgroundColor: gradient,
           borderWidth: 1
         }
       ]
     },
     options: {
       responsive: true,
-      plugins: {
-        legend: {
-          position: 'top',
-        },
-        title: {
-          display: true,
-          text: 'Net Income per year'
+      scales: {
+        y: {
+          max: 18,
+          ticks: {
+            stepSize: 4
+          }
         }
+      },
+      plugins: {
+        legend: false
       }
     }
   })
